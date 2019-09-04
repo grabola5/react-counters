@@ -1,6 +1,6 @@
 'use strict';
 
-var CounterPlus = React.createClass({
+var Counter = React.createClass({
     getInitialState: function() {
         return {
             counter: 0
@@ -13,21 +13,7 @@ var CounterPlus = React.createClass({
         });
     },
 
-    render: function() {
-        return React.createElement('div', {}, this.state.counter,
-
-            React.createElement('button', {onClick: this.increment}, 'Plus 1')
-        );
-    }
-});
-
-var CounterMinus = React.createClass({
-    getInitialState: function() {
-        return{
-            counter: 0
-        };
-    },
-    decrement: function() {
+     decrement: function() {
         this.setState({
             counter: this.state.counter - 1
         });
@@ -35,16 +21,15 @@ var CounterMinus = React.createClass({
 
     render: function() {
         return React.createElement('div', {}, this.state.counter,
-
-            React.createElement('button', {onClick: this.decrement}, 'Minus 1')
-        );
+            React.createElement('button', {onClick: this.decrement}, 'Minus 1'),
+            React.createElement('button', {onClick: this.increment}, 'Plus 1')
+        )
     }
 });
 
-
 var element = React.createElement('div', {},
-    React.createElement(CounterMinus),
-    React.createElement(CounterPlus)
+    React.createElement(Counter),
+    React.createElement(Counter)
     );
 
 ReactDOM.render(element, document.getElementById('app'));
